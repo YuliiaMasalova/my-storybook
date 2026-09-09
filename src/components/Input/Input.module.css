@@ -1,0 +1,138 @@
+/**
+ * Input — styles driven by design tokens (src/tokens/tokens.css).
+ * Figma reference: node 2087:1117 ("Inputs" component set).
+ *
+ * Figma's `state` variants map onto real HTML/CSS states instead of props:
+ *   Default   -> resting style, empty native <input>
+ *   Focused   -> :focus-within (Figma's mock didn't change the border color
+ *                for this state; a visible focus ring is added here anyway
+ *                for accessibility — a static mock can't show it, but a real
+ *                input needs one)
+ *   Filled    -> just "has a value" — native <input>/::placeholder already
+ *                switch between placeholder and text color automatically
+ *   Error     -> `error` prop (validation is data, not a transient interaction)
+ *   Disabled  -> :disabled / the `disabled` attribute
+ *
+ * There's no `size` variant here (unlike Button/Card): tokens.json defines
+ * identical values for size-{sm,md,lg}-input-*, so this only ever reads the
+ * "md" tier — adding a size prop wouldn't change anything.
+ */
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--primitive-scale-8);
+}
+
+.label {
+  font-family: var(--primitive-font-family-primary);
+  font-weight: var(--primitive-font-weight-regular);
+  font-size: var(--primitive-font-size-16);
+  color: var(--component-input-text);
+}
+
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--size-md-input-spacing);
+  width: 100%;
+  min-height: 54px; /* Figma auto-layout height — no dedicated token, same as Button's min-heights */
+  padding: var(--size-md-input-vertical-padding) var(--size-md-input-horizontal-padding);
+  border: 1px solid var(--component-input-border-default);
+  background: var(--component-input-bg);
+  box-sizing: border-box;
+  transition: border-color 0.15s ease;
+}
+
+.box:focus-within {
+  border-color: var(--semantic-border-primary-active);
+}
+
+.box.error {
+  border-color: var(--component-input-border-error);
+}
+
+.box.disabled {
+  border-color: var(--semantic-border-disabled-100);
+}
+
+.field {
+  flex: 1 0 0;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: var(--primitive-font-family-primary);
+  font-weight: var(--primitive-font-weight-regular);
+  font-size: var(--primitive-font-size-16);
+  letter-spacing: 0.16px; /* matches Figma; no token for this exact value */
+  color: var(--component-input-text);
+}
+
+.field::placeholder {
+  color: var(--component-input-placeholder);
+}
+
+.field:disabled {
+  color: var(--semantic-border-disabled-100);
+  cursor: not-allowed;
+}
+
+.field:disabled::placeholder {
+  color: var(--semantic-border-disabled-100);
+}
+
+.icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  width: var(--size-md-input-icon-size);
+  height: var(--size-md-input-icon-size);
+  color: var(--component-input-placeholder);
+}
+
+.icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.iconButton {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: var(--size-md-input-icon-size);
+  height: var(--size-md-input-icon-size);
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--component-input-placeholder);
+  cursor: pointer;
+}
+
+.iconButton:disabled {
+  cursor: not-allowed;
+}
+
+.iconButton svg {
+  width: 100%;
+  height: 100%;
+}
+
+.helperText {
+  font-family: var(--primitive-font-family-primary);
+  font-weight: var(--primitive-font-weight-regular);
+  font-size: var(--primitive-font-size-12);
+  letter-spacing: 0.12px; /* matches Figma; no token for this exact value */
+  color: var(--semantic-text-color-body-text-secondary);
+}
+
+.helperTextError {
+  color: var(--semantic-text-color-error-default);
+}
+
+.wrapper:has(.field:disabled) .label,
+.wrapper:has(.field:disabled) .helperText {
+  color: var(--semantic-border-disabled-100);
+}

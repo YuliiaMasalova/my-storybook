@@ -1,0 +1,151 @@
+/**
+ * Button — styles driven entirely by design tokens (src/tokens/tokens.css).
+ * Figma reference: node 2081:1492 ("Buttons" component set).
+ *
+ * Figma's `state` variants map onto real CSS/DOM states instead of props:
+ *   Default   -> resting style
+ *   Hover     -> :hover
+ *   Focused   -> :focus-visible
+ *   Selected  -> [data-selected] (toggled/active buttons, e.g. segmented controls)
+ *   Disabled  -> :disabled
+ */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  gap: var(--gap);
+  padding: var(--vpad) var(--hpad);
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  font-family: var(--primitive-font-family-primary);
+  font-weight: var(--primitive-font-weight-medium);
+  font-size: var(--font-size);
+  line-height: normal;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.button:disabled {
+  cursor: not-allowed;
+}
+
+.label {
+  overflow-wrap: break-word;
+}
+
+.icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  width: var(--icon-size);
+  height: var(--icon-size);
+}
+
+.icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* ---- sizes — values from "Component Sizes/{small,medium,large}" tokens ---- */
+/* min-height (32/48/64) matches the Figma auto-layout box height; there's no
+   dedicated token for it, so it's a literal constant here, same as in Figma. */
+
+.sm {
+  --radius: var(--size-sm-button-radius);
+  --gap: var(--size-sm-button-spacing);
+  --hpad: var(--size-sm-button-horizontal-padding);
+  --vpad: var(--size-sm-button-vertical-padding);
+  --full-pad: var(--size-sm-button-full-padding);
+  --icon-size: var(--size-sm-button-icon-size);
+  --font-size: var(--primitive-font-size-12);
+  min-height: 32px;
+}
+
+.md {
+  --radius: var(--size-md-button-radius);
+  --gap: var(--size-md-button-spacing);
+  --hpad: var(--size-md-button-horizontal-padding);
+  --vpad: var(--size-md-button-vertical-padding);
+  --full-pad: var(--size-md-button-full-padding);
+  --icon-size: var(--size-md-button-icon-size);
+  --font-size: var(--primitive-font-size-16);
+  min-height: 48px;
+}
+
+.lg {
+  --radius: var(--size-lg-button-radius);
+  --gap: var(--size-lg-button-spacing);
+  --hpad: var(--size-lg-button-horizontal-padding);
+  --vpad: var(--size-lg-button-vertical-padding);
+  --full-pad: var(--size-lg-button-full-padding);
+  --icon-size: var(--size-lg-button-icon-size);
+  --font-size: var(--primitive-font-size-20);
+  min-height: 64px;
+}
+
+/* ---- icon-only ("icon=Alone") — square, uses full-padding ---- */
+.iconOnly {
+  padding: var(--full-pad);
+}
+.sm.iconOnly {
+  min-width: 32px;
+}
+.md.iconOnly {
+  min-width: 48px;
+}
+.lg.iconOnly {
+  min-width: 64px;
+}
+
+/* ---- variant: primary ("type=Primary") ---- */
+.primary {
+  background: var(--component-button-bg-default);
+  color: var(--component-button-text);
+  border-color: transparent;
+}
+.primary:hover:not(:disabled) {
+  background: var(--component-button-bg-hover);
+}
+.primary:focus-visible {
+  background: var(--component-button-bg-hover);
+  border-color: var(--semantic-border-primary-active);
+  border-width: 1.5px;
+  outline: none;
+}
+.primary[data-selected]:not(:disabled) {
+  background: var(--primitive-color-blue-700);
+}
+.primary:disabled {
+  background: var(--semantic-surface-button-bg-disabled);
+  color: var(--semantic-text-color-disabled-100);
+  border-color: transparent;
+}
+
+/* ---- variant: secondary ("type=Secondary") — outlined ---- */
+.secondary {
+  background: transparent;
+  color: var(--semantic-text-color-body-text-primary);
+  border-color: var(--component-button-bg-default);
+}
+.secondary:hover:not(:disabled) {
+  border-color: var(--component-button-bg-hover);
+}
+.secondary:focus-visible {
+  border-color: var(--component-button-bg-hover);
+  border-width: 1.5px;
+  outline: none;
+}
+.secondary[data-selected]:not(:disabled) {
+  border-color: var(--primitive-color-blue-700);
+  border-width: 1.5px;
+}
+.secondary:disabled {
+  background: var(--semantic-surface-button-bg-disabled);
+  border-color: transparent;
+  color: var(--semantic-text-color-disabled-100);
+}

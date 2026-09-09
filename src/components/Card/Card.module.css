@@ -1,0 +1,149 @@
+/**
+ * Card — styles driven by design tokens (src/tokens/tokens.css).
+ * Figma reference: node 2103:731 ("Cards" component set).
+ *
+ * Figma's `state=hover` maps onto real CSS instead of a prop — the border
+ * just uses :hover. Figma's `responsive` variant (desktop/tablet/mobile)
+ * isn't a prop either: title size and card width already read tokens
+ * (--grid-typography-headings-h3-size, --grid-card-width) that switch by
+ * viewport width via the same @media breakpoints tokens.css defines — this
+ * only adds media queries for the couple of properties tokens don't cover
+ * (date/description color, and the image/body layout on desktop).
+ *
+ * There's no `size` prop (like Input): size-{sm,md,lg}-card-* are identical
+ * in tokens.json, so it only ever reads the "md" tier.
+ */
+
+.card {
+  display: flex;
+  align-items: center;
+  gap: var(--size-md-card-spacing);
+  width: var(--grid-card-width);
+  padding: var(--size-md-card-vertical-padding) var(--size-md-card-horizontal-padding);
+  border: var(--semantic-sizes-border-bw-2) solid var(--component-card-border);
+  border-radius: var(--size-md-card-radius);
+  background: var(--component-card-bg);
+  box-sizing: border-box;
+  overflow: hidden;
+  transition: border-color 0.15s ease;
+}
+
+.card:hover {
+  border-color: var(--component-card-border-hover);
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1 0 0;
+  min-width: 0;
+  gap: 12px;
+}
+
+.imageWrap {
+  position: relative;
+  width: 100%;
+  height: 263px; /* Figma: fixed on mobile/tablet, fills column height on desktop below */
+  flex-shrink: 0;
+  border-radius: 16px; /* no dedicated token — smaller than the card's own radius by design */
+  overflow: hidden;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.date {
+  width: 100%;
+  font-family: var(--primitive-font-family-primary);
+  font-weight: var(--primitive-font-weight-regular);
+  font-size: var(--grid-typography-body-text-small-size);
+  color: var(--component-card-text-title);
+}
+
+.title {
+  width: 100%;
+  margin: 0;
+  font-family: var(--primitive-font-family-primary);
+  font-weight: var(--primitive-font-weight-bold);
+  font-size: var(--grid-typography-headings-h3-size); /* responsive: 18/20/24 by breakpoint */
+  color: var(--component-card-text-title);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  width: 100%;
+}
+
+.description {
+  width: 100%;
+  margin: 0;
+  font-family: var(--primitive-font-family-primary);
+  font-weight: var(--primitive-font-weight-regular);
+  font-size: var(--grid-typography-body-text-small-size);
+  color: var(--component-card-text-title);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* mobile: pills spread apart */
+  align-items: flex-start;
+  gap: 20px;
+  width: 100%;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding-top: 5px; /* Figma's exact (slightly asymmetric) pill padding */
+  padding-right: 15px; /* horizontal kept as-is — no scale token matches 15px exactly */
+  padding-bottom: 7px;
+  padding-left: 15px;
+  border-radius: var(--primitive-radius-9999);
+  background: var(--semantic-surface-tags-default);
+  color: var(--primitive-color-base-white);
+  /* Figma specifies "Overused Grotesk" for tag labels specifically (every
+     other text in this design uses Inter) — not in tokens.json, so it's
+     literal here rather than the --primitive-font-family-primary token;
+     falls back to sans-serif if the font isn't loaded on the page. */
+  font-family: 'Overused Grotesk', sans-serif;
+  font-weight: var(--primitive-font-weight-regular);
+  font-size: 18px;
+  line-height: 26px; /* fixed — default line-height was collapsing pill height */
+  white-space: nowrap;
+}
+
+/* ---- tablet+ (>=1024px): tags group left instead of spreading ---- */
+@media (min-width: 1024px) {
+  .tags {
+    justify-content: flex-start;
+  }
+}
+
+/* ---- desktop (>=1440px): lighter meta text; image fills the column ---- */
+@media (min-width: 1440px) {
+  .date,
+  .description {
+    color: var(--component-card-text-secondary);
+  }
+
+  .body {
+    height: 456px;
+  }
+
+  .imageWrap {
+    height: auto;
+    flex: 1 0 0;
+    min-height: 0;
+  }
+}

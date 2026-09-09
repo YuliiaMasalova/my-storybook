@@ -1,0 +1,545 @@
+/**
+ * tokens.css — auto-generated from src/tokens/tokens.json
+ * DO NOT edit by hand — edit tokens.json and regenerate.
+ *
+ * 3 tiers:
+ *   1. Primitives            → --primitive-*       (raw palette / scale, never used directly in components)
+ *   2. Semantic (Light/Dark) → --semantic-*        (theme-aware, switches on [data-theme])
+ *   3. Component              → --component-*      (component-level values)
+ *      + Component Sizes      → --size-{sm,md,lg}-* (all 3 always on :root — distinct names, pick the prefix you need)
+ *      + Semantic Grid        → --grid-*           (breakpoint-aware layout/typography, switches via media query)
+ */
+
+/* ============================================================
+   1. PRIMITIVES
+   ============================================================ */
+:root {
+  --primitive-color-blue-50: #eff6ff;
+  --primitive-color-blue-100: #dbeafe;
+  --primitive-color-blue-200: #9bb7f6;
+  --primitive-color-blue-300: #6d96f2;
+  --primitive-color-blue-400: #5182ef;
+  --primitive-color-blue-500: #2b67ec;
+  --primitive-color-blue-600: #225ad6;
+  --primitive-color-blue-700: #1d4ed8;
+  --primitive-color-blue-800: #2b4fb4;
+  --primitive-color-blue-900: #1e3a8a;
+  --primitive-color-gray-50: #f9fafb;
+  --primitive-color-gray-100: #eceff2;
+  --primitive-color-gray-200: #d5dce2;
+  --primitive-color-gray-300: #b0bec9;
+  --primitive-color-gray-400: #859cab;
+  --primitive-color-gray-500: #667f91;
+  --primitive-color-gray-600: #516778;
+  --primitive-color-gray-700: #425362;
+  --primitive-color-gray-800: #394753;
+  --primitive-color-gray-900: #0f1218;
+  --primitive-color-gray-white: #ffffff;
+  --primitive-color-gray-transparent: #ffffff;
+  --primitive-color-red-50: #fff1f2;
+  --primitive-color-red-100: #ffe4e6;
+  --primitive-color-red-200: #fecdd3;
+  --primitive-color-red-300: #fda4af;
+  --primitive-color-red-400: #fb7185;
+  --primitive-color-red-500: #f43f5e;
+  --primitive-color-red-600: #e11d48;
+  --primitive-color-red-700: #be123c;
+  --primitive-color-red-800: #9f1239;
+  --primitive-color-red-900: #881337;
+  --primitive-color-red-950: #4c0519;
+  --primitive-color-green-50: #ecfdf5;
+  --primitive-color-green-100: #d1fae5;
+  --primitive-color-green-200: #a7f3d0;
+  --primitive-color-green-300: #6ee7b7;
+  --primitive-color-green-400: #34d399;
+  --primitive-color-green-500: #10b981;
+  --primitive-color-green-600: #059669;
+  --primitive-color-green-700: #047857;
+  --primitive-color-green-800: #065f46;
+  --primitive-color-green-900: #064e3b;
+  --primitive-color-yellow-50: #fffbeb;
+  --primitive-color-yellow-100: #fef3c7;
+  --primitive-color-yellow-200: #fde68a;
+  --primitive-color-yellow-300: #fcd34d;
+  --primitive-color-yellow-400: #fbbf24;
+  --primitive-color-yellow-500: #f59e0b;
+  --primitive-color-yellow-600: #d97706;
+  --primitive-color-yellow-700: #b45309;
+  --primitive-color-yellow-800: #92400e;
+  --primitive-color-yellow-900: #78350f;
+  --primitive-color-yellow-950: #451a03;
+  --primitive-color-violet-50: #f5f3ff;
+  --primitive-color-violet-100: #ede9fe;
+  --primitive-color-violet-200: #ddd6fe;
+  --primitive-color-violet-300: #c4b5fd;
+  --primitive-color-violet-400: #a78bfa;
+  --primitive-color-violet-500: #8b5cf6;
+  --primitive-color-violet-600: #7c3aed;
+  --primitive-color-violet-700: #6d28d9;
+  --primitive-color-violet-800: #5b21b6;
+  --primitive-color-violet-900: #4c1d95;
+  --primitive-color-violet-950: #2e1065;
+  --primitive-color-base-white: #ffffff;
+  --primitive-color-base-transparent: #ffffff;
+  --primitive-color-base-black: #0f1218;
+  --primitive-radius-4: 4px;
+  --primitive-radius-8: 8px;
+  --primitive-radius-12: 12px;
+  --primitive-radius-16: 16px;
+  --primitive-radius-20: 20px;
+  --primitive-radius-9999: 9999px;
+  --primitive-scale-0: 0px;
+  --primitive-scale-1: 1px;
+  --primitive-scale-2: 2px;
+  --primitive-scale-4: 4px;
+  --primitive-scale-8: 8px;
+  --primitive-scale-12: 12px;
+  --primitive-scale-16: 16px;
+  --primitive-scale-20: 20px;
+  --primitive-scale-24: 24px;
+  --primitive-scale-28: 28px;
+  --primitive-scale-32: 32px;
+  --primitive-scale-40: 40px;
+  --primitive-scale-48: 40px;
+  --primitive-scale-52: 52px;
+  --primitive-scale-64: 64px;
+  --primitive-scale-80: 80px;
+  --primitive-scale-120: 120px;
+  --primitive-scale-160: 160px;
+  --primitive-scale-200: 200px;
+  --primitive-font-family-primary: "Inter", sans-serif;
+  --primitive-font-size-12: 12px;
+  --primitive-font-size-16: 16px;
+  --primitive-font-size-18: 18px;
+  --primitive-font-size-20: 20px;
+  --primitive-font-size-24: 24px;
+  --primitive-font-size-32: 32px;
+  --primitive-font-size-40: 40px;
+  --primitive-font-size-48: 48px;
+  --primitive-font-size-64: 64px;
+  --primitive-font-size-72: 72px;
+  --primitive-font-height-16: 16px;
+  --primitive-font-height-20: 20px;
+  --primitive-font-height-24: 24px;
+  --primitive-font-height-28: 28px;
+  --primitive-font-height-32: 32px;
+  --primitive-font-height-40: 40px;
+  --primitive-font-height-48: 48px;
+  --primitive-font-height-56: 56px;
+  --primitive-font-height-72: 72px;
+  --primitive-font-spacing-tight: -0.5px;
+  --primitive-font-spacing-normal: 0px;
+  --primitive-font-spacing-wide: 1px;
+  --primitive-font-weight-regular: 400;
+  --primitive-font-weight-medium: 500;
+  --primitive-font-weight-semi-bold: 600;
+  --primitive-font-weight-bold: 700;
+}
+
+/* ============================================================
+   2. SEMANTIC — Light (default) / Dark
+   ============================================================ */
+:root,
+[data-theme='light'] {
+  --semantic-surface-bg-bg-secondary: #f9fafb;
+  --semantic-surface-bg-bg-primary: #ffffff;
+  --semantic-surface-bg-bg-inverse: #0f1218;
+  --semantic-surface-button-bg-default: #2b67ec;
+  --semantic-surface-button-bg-hover: #6d96f2;
+  --semantic-surface-button-bg-disabled: #d5dce2;
+  --semantic-surface-button-bg-secondary-hover: #eff6ff;
+  --semantic-surface-button-bg-secondary-default: #ffffff;
+  --semantic-surface-input-bg-primary: #ffffff;
+  --semantic-surface-input-bg-secondary: #f9fafb;
+  --semantic-surface-input-bg-inverse: #0f1218;
+  --semantic-surface-card-bg-primary: #ffffff;
+  --semantic-surface-card-bg-secondary: #f9fafb;
+  --semantic-surface-card-bg-inverse: #0f1218;
+  --semantic-surface-tags-default: #0f1218;
+  --semantic-surface-tags-hover: #425362;
+  --semantic-surface-tags-bg-inverse: #0f1218;
+  --semantic-surface-table-row-bg-primary: #ffffff;
+  --semantic-surface-table-row-bg-hover: #eceff2;
+  --semantic-surface-table-row-bg-inverse: #0f1218;
+  --semantic-text-color-link-default: #7c3aed;
+  --semantic-text-color-link-hover: #5b21b6;
+  --semantic-text-color-link-visited: #8b5cf6;
+  --semantic-text-color-success-light: #10b981;
+  --semantic-text-color-success-default: #059669;
+  --semantic-text-color-success-dark: #047857;
+  --semantic-text-color-success-light-2: #10b981;
+  --semantic-text-color-success-default-2: #059669;
+  --semantic-text-color-success-dark-2: #047857;
+  --semantic-text-color-warning-light: #d97706;
+  --semantic-text-color-warning-default: #b45309;
+  --semantic-text-color-warning-dark: #92400e;
+  --semantic-text-color-error-light: #f43f5e;
+  --semantic-text-color-error-default: #e11d48;
+  --semantic-text-color-error-dark: #be123c;
+  --semantic-text-color-disabled-100: #b0bec9;
+  --semantic-text-color-disabled-200: #859cab;
+  --semantic-text-color-disabled-300: #667f91;
+  --semantic-text-color-infirmation-light: #8b5cf6;
+  --semantic-text-color-infirmation-default: #7c3aed;
+  --semantic-text-color-infirmation-dark: #6d28d9;
+  --semantic-text-color-infirmation-light-2: #8b5cf6;
+  --semantic-text-color-heading-text-primary: #0f1218;
+  --semantic-text-color-heading-text-inverse: #eff6ff;
+  --semantic-text-color-heading-text-secondary: #1d4ed8;
+  --semantic-text-color-body-text-primary: #394753;
+  --semantic-text-color-body-text-secondary: #425362;
+  --semantic-text-color-body-text-inverse: #ffffff;
+  --semantic-border-disabled-100: #d5dce2;
+  --semantic-border-disabled-200: #b0bec9;
+  --semantic-border-disabled-300: #859cab;
+  --semantic-border-information-light: #ddd6fe;
+  --semantic-border-information-default: #8b5cf6;
+  --semantic-border-information-dark: #6d28d9;
+  --semantic-border-success-default: #10b981;
+  --semantic-border-success-dark: #047857;
+  --semantic-border-success-light: #a7f3d0;
+  --semantic-border-warning-light: #fde68a;
+  --semantic-border-warning-dark: #b45309;
+  --semantic-border-warning-default: #f59e0b;
+  --semantic-border-error-light: #fecdd3;
+  --semantic-border-error-default: #f43f5e;
+  --semantic-border-error-dark: #be123c;
+  --semantic-border-primary-default: #b0bec9;
+  --semantic-border-primary-active: #2b67ec;
+  --semantic-border-secondary-default: #b0bec9;
+  --semantic-sizes-spacing-sp-none: 0px;
+  --semantic-sizes-spacing-sp-4: 4px;
+  --semantic-sizes-spacing-sp-12: 12px;
+  --semantic-sizes-spacing-sp-16: 16px;
+  --semantic-sizes-spacing-sp-20: 20px;
+  --semantic-sizes-spacing-sp-24: 24px;
+  --semantic-sizes-spacing-sp-32: 32px;
+  --semantic-sizes-spacing-sp-40: 40px;
+  --semantic-sizes-spacing-sp-8: 8px;
+  --semantic-sizes-spacing-sp-48: 40px;
+  --semantic-sizes-spacing-sp-64: 64px;
+  --semantic-sizes-spacing-sp-80: 80px;
+  --semantic-sizes-spacing-sp-120: 120px;
+  --semantic-sizes-spacing-sp-160: 160px;
+  --semantic-sizes-spacing-sp-200: 200px;
+  --semantic-sizes-radius-rd-none: 0px;
+  --semantic-sizes-radius-rd-4: 4px;
+  --semantic-sizes-radius-rd-8: 8px;
+  --semantic-sizes-radius-rd-12: 12px;
+  --semantic-sizes-radius-rd-16: 16px;
+  --semantic-sizes-radius-rd-20: 20px;
+  --semantic-sizes-radius-rd-24: 24px;
+  --semantic-sizes-radius-rd-32: 32px;
+  --semantic-sizes-radius-rd-40: 40px;
+  --semantic-sizes-radius-rd-200: 200px;
+  --semantic-sizes-border-bw-none: 0px;
+  --semantic-sizes-border-bw-1: 1px;
+  --semantic-sizes-border-bw-2: 2px;
+  --semantic-family: "Inter", sans-serif;
+  --semantic-size: 72px;
+  --semantic-weight: 700;
+  --semantic-brand-primary: #2b67ec;
+}
+
+[data-theme='dark'] {
+  --semantic-surface-bg-bg-secondary: #394753;
+  --semantic-surface-bg-bg-primary: #0f1218;
+  --semantic-surface-bg-bg-inverse: #f9fafb;
+  --semantic-surface-button-bg-default: #2b67ec;
+  --semantic-surface-button-bg-hover: #5182ef;
+  --semantic-surface-button-bg-disabled: #d5dce2;
+  --semantic-surface-button-bg-secondary-hover: #eff6ff;
+  --semantic-surface-button-bg-secondary-default: #ffffff;
+  --semantic-surface-input-bg-primary: #394753;
+  --semantic-surface-input-bg-secondary: #425362;
+  --semantic-surface-input-bg-inverse: #eceff2;
+  --semantic-surface-card-bg-primary: #394753;
+  --semantic-surface-card-bg-secondary: #425362;
+  --semantic-surface-card-bg-inverse: #eceff2;
+  --semantic-surface-tags-default: #0f1218;
+  --semantic-surface-tags-hover: #394753;
+  --semantic-surface-tags-bg-inverse: #f9fafb;
+  --semantic-surface-table-row-bg-primary: #394753;
+  --semantic-surface-table-row-bg-hover: #425362;
+  --semantic-surface-table-row-bg-inverse: #eceff2;
+  --semantic-text-color-link-default: #a78bfa;
+  --semantic-text-color-link-hover: #c4b5fd;
+  --semantic-text-color-link-visited: #8b5cf6;
+  --semantic-text-color-success-light: #34d399;
+  --semantic-text-color-success-default: #34d399;
+  --semantic-text-color-success-dark: #6ee7b7;
+  --semantic-text-color-success-light-2: #34d399;
+  --semantic-text-color-success-default-2: #34d399;
+  --semantic-text-color-success-dark-2: #6ee7b7;
+  --semantic-text-color-warning-light: #fbbf24;
+  --semantic-text-color-warning-default: #fcd34d;
+  --semantic-text-color-warning-dark: #fde68a;
+  --semantic-text-color-error-light: #fb7185;
+  --semantic-text-color-error-default: #fb7185;
+  --semantic-text-color-error-dark: #fda4af;
+  --semantic-text-color-disabled-100: #425362;
+  --semantic-text-color-disabled-200: #516778;
+  --semantic-text-color-disabled-300: #667f91;
+  --semantic-text-color-infirmation-light: #a78bfa;
+  --semantic-text-color-infirmation-default: #a78bfa;
+  --semantic-text-color-infirmation-dark: #c4b5fd;
+  --semantic-text-color-infirmation-light-2: #a78bfa;
+  --semantic-text-color-heading-text-primary: #ffffff;
+  --semantic-text-color-heading-text-inverse: #eff6ff;
+  --semantic-text-color-heading-text-secondary: #2b67ec;
+  --semantic-text-color-body-text-primary: #ffffff;
+  --semantic-text-color-body-text-secondary: #859cab;
+  --semantic-text-color-body-text-inverse: #0f1218;
+  --semantic-border-disabled-100: #425362;
+  --semantic-border-disabled-200: #516778;
+  --semantic-border-disabled-300: #667f91;
+  --semantic-border-information-light: #5b21b6;
+  --semantic-border-information-default: #8b5cf6;
+  --semantic-border-information-dark: #c4b5fd;
+  --semantic-border-success-default: #10b981;
+  --semantic-border-success-dark: #34d399;
+  --semantic-border-success-light: #065f46;
+  --semantic-border-warning-light: #92400e;
+  --semantic-border-warning-dark: #fcd34d;
+  --semantic-border-warning-default: #f59e0b;
+  --semantic-border-error-light: #9f1239;
+  --semantic-border-error-default: #f43f5e;
+  --semantic-border-error-dark: #fda4af;
+  --semantic-border-primary-default: #425362;
+  --semantic-border-primary-active: #2b67ec;
+  --semantic-border-secondary-default: #516778;
+  --semantic-sizes-spacing-sp-none: 0px;
+  --semantic-sizes-spacing-sp-4: 4px;
+  --semantic-sizes-spacing-sp-12: 12px;
+  --semantic-sizes-spacing-sp-16: 16px;
+  --semantic-sizes-spacing-sp-20: 20px;
+  --semantic-sizes-spacing-sp-24: 24px;
+  --semantic-sizes-spacing-sp-32: 32px;
+  --semantic-sizes-spacing-sp-40: 40px;
+  --semantic-sizes-spacing-sp-8: 8px;
+  --semantic-sizes-spacing-sp-48: 40px;
+  --semantic-sizes-spacing-sp-64: 64px;
+  --semantic-sizes-spacing-sp-80: 80px;
+  --semantic-sizes-spacing-sp-120: 120px;
+  --semantic-sizes-spacing-sp-160: 160px;
+  --semantic-sizes-spacing-sp-200: 200px;
+  --semantic-sizes-radius-rd-none: 0px;
+  --semantic-sizes-radius-rd-4: 4px;
+  --semantic-sizes-radius-rd-8: 8px;
+  --semantic-sizes-radius-rd-12: 12px;
+  --semantic-sizes-radius-rd-16: 16px;
+  --semantic-sizes-radius-rd-20: 20px;
+  --semantic-sizes-radius-rd-24: 24px;
+  --semantic-sizes-radius-rd-32: 32px;
+  --semantic-sizes-radius-rd-40: 40px;
+  --semantic-sizes-radius-rd-200: 200px;
+  --semantic-sizes-border-bw-none: 0px;
+  --semantic-sizes-border-bw-1: 1px;
+  --semantic-sizes-border-bw-2: 2px;
+  --semantic-family: "Inter", sans-serif;
+  --semantic-size: 72px;
+  --semantic-weight: 700;
+  --semantic-brand-primary: #2b67ec;
+}
+
+/* ============================================================
+   3. COMPONENT
+   ============================================================ */
+:root {
+  --component-button-bg-default: #2b67ec;
+  --component-button-bg-hover: #6d96f2;
+  --component-button-text: #ffffff;
+  --component-input-bg: #ffffff;
+  --component-input-border-default: #b0bec9;
+  --component-input-border-error: #f43f5e;
+  --component-input-text: #394753;
+  --component-input-placeholder: #b0bec9;
+  --component-card-bg: #ffffff;
+  --component-card-border: #b0bec9;
+  --component-card-text-title: #0f1218;
+  --component-card-text-secondary: #425362;
+  --component-card-border-hover: #2b67ec;
+  --component-call-bg: #ffffff;
+  --component-table-row-bg: #ffffff;
+  --component-table-row-border: #b0bec9;
+  --component-table-row-border-hover: #2b67ec;
+  --component-table-row-text-title: #0f1218;
+  --component-table-row-bg-selected: #eceff2;
+}
+
+/* ---- Component Sizes ----
+   --size-sm-*, --size-md-* and --size-lg-* are distinct names per size (not
+   one name whose value swaps), so all three sets are always defined on
+   :root — consuming CSS picks whichever prefix it needs, unconditionally. */
+:root {
+  --size-sm-button-radius: 8px;
+  --size-sm-button-spacing: 4px;
+  --size-sm-button-horizontal-padding: 16px;
+  --size-sm-button-vertical-padding: 8px;
+  --size-sm-button-full-padding: 8px;
+  --size-sm-button-icon-size: 16px;
+  --size-sm-input-radius: 8px;
+  --size-sm-input-spacing: 8px;
+  --size-sm-input-horizontal-padding: 16px;
+  --size-sm-input-vertical-padding: 16px;
+  --size-sm-input-icon-size: 20px;
+  --size-sm-card-radius: 32px;
+  --size-sm-card-spacing: 12px;
+  --size-sm-card-horizontal-padding: 32px;
+  --size-sm-card-vertical-padding: 32px;
+  --size-sm-table-row-radius: 8px;
+  --size-sm-table-row-spacing: 16px;
+  --size-sm-table-row-horizontal-padding: 0px;
+  --size-sm-table-row-vertical-padding: 4px;
+  --size-sm-cell-radius: 8px;
+  --size-sm-cell-spacing: 0px;
+  --size-sm-cell-horizontal-padding: 24px;
+  --size-sm-cell-vertical-padding: 16px;
+  --size-md-button-radius: 12px;
+  --size-md-button-spacing: 8px;
+  --size-md-button-horizontal-padding: 20px;
+  --size-md-button-vertical-padding: 12px;
+  --size-md-button-full-padding: 12px;
+  --size-md-button-icon-size: 20px;
+  --size-md-input-radius: 8px;
+  --size-md-input-spacing: 8px;
+  --size-md-input-horizontal-padding: 16px;
+  --size-md-input-vertical-padding: 16px;
+  --size-md-input-icon-size: 20px;
+  --size-md-card-radius: 32px;
+  --size-md-card-spacing: 12px;
+  --size-md-card-horizontal-padding: 32px;
+  --size-md-card-vertical-padding: 32px;
+  --size-md-table-row-radius: 8px;
+  --size-md-table-row-spacing: 16px;
+  --size-md-table-row-horizontal-padding: 0px;
+  --size-md-table-row-vertical-padding: 4px;
+  --size-md-cell-radius: 8px;
+  --size-md-cell-spacing: 0px;
+  --size-md-cell-horizontal-padding: 24px;
+  --size-md-cell-vertical-padding: 16px;
+  --size-lg-button-radius: 16px;
+  --size-lg-button-spacing: 12px;
+  --size-lg-button-horizontal-padding: 24px;
+  --size-lg-button-vertical-padding: 16px;
+  --size-lg-button-full-padding: 16px;
+  --size-lg-button-icon-size: 24px;
+  --size-lg-input-radius: 8px;
+  --size-lg-input-spacing: 8px;
+  --size-lg-input-horizontal-padding: 16px;
+  --size-lg-input-vertical-padding: 16px;
+  --size-lg-input-icon-size: 20px;
+  --size-lg-card-radius: 32px;
+  --size-lg-card-spacing: 12px;
+  --size-lg-card-horizontal-padding: 32px;
+  --size-lg-card-vertical-padding: 32px;
+  --size-lg-table-row-radius: 8px;
+  --size-lg-table-row-spacing: 16px;
+  --size-lg-table-row-horizontal-padding: 0px;
+  --size-lg-table-row-vertical-padding: 4px;
+  --size-lg-cell-radius: 8px;
+  --size-lg-cell-spacing: 0px;
+  --size-lg-cell-horizontal-padding: 24px;
+  --size-lg-cell-vertical-padding: 16px;
+}
+
+/* ---- Semantic Grid (breakpoint tokens, mobile-first) ---- */
+:root {
+  --grid-breakpoint: 390px;
+  --grid-margin: 20px;
+  --grid-gutter: 10px;
+  --grid-card-width: 350px;
+  --grid-columns: 2;
+  --grid-typography-headings-h2-family: "Inter", sans-serif;
+  --grid-typography-headings-h2-weight: 700;
+  --grid-typography-headings-h2-size: 32px;
+  --grid-typography-headings-h1-weight: 700;
+  --grid-typography-headings-h1-family: "Inter", sans-serif;
+  --grid-typography-headings-h1-size: 40px;
+  --grid-typography-headings-h3-size: 18px;
+  --grid-typography-headings-h3-weight: 700;
+  --grid-typography-headings-h3-family: "Inter", sans-serif;
+  --grid-typography-body-base-weight: 400;
+  --grid-typography-body-base-size: 18px;
+  --grid-typography-body-base-family: "Inter", sans-serif;
+  --grid-typography-body-text-small-size: 16px;
+  --grid-typography-body-text-small-family: "Inter", sans-serif;
+  --grid-typography-body-text-small-weight: 400;
+  --grid-typography-body-caption-size: 12px;
+  --grid-typography-body-caption-weight: 400;
+  --grid-typography-body-caption-family: "Inter", sans-serif;
+  --grid-typography-body-bold-weight: 700;
+  --grid-typography-body-bold-family: "Inter", sans-serif;
+  --grid-typography-body-bold-size: 16px;
+  --grid-typography-display-family: "Inter", sans-serif;
+  --grid-typography-display-size: 48px;
+  --grid-typography-display-weight: 700;
+}
+
+@media (min-width: 1024px) {
+  :root {
+  --grid-breakpoint: 1024px;
+  --grid-margin: 40px;
+  --grid-gutter: 20px;
+  --grid-card-width: 460px;
+  --grid-columns: 6;
+  --grid-typography-headings-h2-family: "Inter", sans-serif;
+  --grid-typography-headings-h2-weight: 700;
+  --grid-typography-headings-h2-size: 40px;
+  --grid-typography-headings-h1-weight: 700;
+  --grid-typography-headings-h1-family: "Inter", sans-serif;
+  --grid-typography-headings-h1-size: 48px;
+  --grid-typography-headings-h3-size: 20px;
+  --grid-typography-headings-h3-weight: 700;
+  --grid-typography-headings-h3-family: "Inter", sans-serif;
+  --grid-typography-body-base-weight: 400;
+  --grid-typography-body-base-size: 18px;
+  --grid-typography-body-base-family: "Inter", sans-serif;
+  --grid-typography-body-text-small-size: 16px;
+  --grid-typography-body-text-small-family: "Inter", sans-serif;
+  --grid-typography-body-text-small-weight: 400;
+  --grid-typography-body-caption-size: 12px;
+  --grid-typography-body-caption-weight: 400;
+  --grid-typography-body-caption-family: "Inter", sans-serif;
+  --grid-typography-body-bold-weight: 700;
+  --grid-typography-body-bold-family: "Inter", sans-serif;
+  --grid-typography-body-bold-size: 18px;
+  --grid-typography-display-family: "Inter", sans-serif;
+  --grid-typography-display-size: 64px;
+  --grid-typography-display-weight: 700;
+  }
+}
+
+@media (min-width: 1440px) {
+  :root {
+  --grid-breakpoint: 1440px;
+  --grid-margin: 100px;
+  --grid-gutter: 20px;
+  --grid-card-width: 500px;
+  --grid-columns: 12;
+  --grid-typography-headings-h2-family: "Inter", sans-serif;
+  --grid-typography-headings-h2-weight: 700;
+  --grid-typography-headings-h2-size: 40px;
+  --grid-typography-headings-h1-weight: 700;
+  --grid-typography-headings-h1-family: "Inter", sans-serif;
+  --grid-typography-headings-h1-size: 64px;
+  --grid-typography-headings-h3-size: 24px;
+  --grid-typography-headings-h3-weight: 700;
+  --grid-typography-headings-h3-family: "Inter", sans-serif;
+  --grid-typography-body-base-weight: 400;
+  --grid-typography-body-base-size: 18px;
+  --grid-typography-body-base-family: "Inter", sans-serif;
+  --grid-typography-body-text-small-size: 16px;
+  --grid-typography-body-text-small-family: "Inter", sans-serif;
+  --grid-typography-body-text-small-weight: 400;
+  --grid-typography-body-caption-size: 12px;
+  --grid-typography-body-caption-weight: 400;
+  --grid-typography-body-caption-family: "Inter", sans-serif;
+  --grid-typography-body-bold-weight: 700;
+  --grid-typography-body-bold-family: "Inter", sans-serif;
+  --grid-typography-body-bold-size: 18px;
+  --grid-typography-display-family: "Inter", sans-serif;
+  --grid-typography-display-size: 72px;
+  --grid-typography-display-weight: 700;
+  }
+}
