@@ -100,28 +100,8 @@
   width: 100%;
 }
 
-.tag {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  padding-top: 5px; /* Figma's exact (slightly asymmetric) pill padding */
-  padding-right: 15px; /* horizontal kept as-is — no scale token matches 15px exactly */
-  padding-bottom: 7px;
-  padding-left: 15px;
-  border-radius: var(--primitive-radius-9999);
-  background: var(--semantic-surface-tags-default);
-  color: var(--primitive-color-base-white);
-  /* Figma specifies "Overused Grotesk" for tag labels specifically (every
-     other text in this design uses Inter) — not in tokens.json, so it's
-     literal here rather than the --primitive-font-family-primary token;
-     falls back to sans-serif if the font isn't loaded on the page. */
-  font-family: 'Overused Grotesk', sans-serif;
-  font-weight: var(--primitive-font-weight-regular);
-  font-size: 18px;
-  line-height: 26px; /* fixed — default line-height was collapsing pill height */
-  white-space: nowrap;
-}
+/* Individual pill styling now lives in the Tags component
+   (src/components/Tags/Tags.module.css) — Card only owns the row layout. */
 
 /* ---- tablet+ (>=1024px): tags group left instead of spreading ---- */
 @media (min-width: 1024px) {

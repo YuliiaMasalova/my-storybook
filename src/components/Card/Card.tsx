@@ -1,4 +1,5 @@
 import type { HTMLAttributes, ReactNode } from 'react';
+import { Tags } from '../Tags';
 import styles from './Card.module.css';
 
 export interface CardProps extends Omit<HTMLAttributes<HTMLDivElement>, 'title'> {
@@ -25,6 +26,10 @@ export interface CardProps extends Omit<HTMLAttributes<HTMLDivElement>, 'title'>
  * switch by viewport width on their own; see Card.module.css for the couple
  * of properties (meta text color, image layout) that needed their own
  * @media rule.
+ *
+ * Category pills reuse the standalone Tags component (src/components/Tags)
+ * instead of a local span — same styles, same real `:hover`, one source of
+ * truth for the pill spec instead of two copies drifting apart.
  */
 export function Card({ image, imageAlt, date, title, description, tags, className, ...rest }: CardProps) {
   return (
@@ -40,9 +45,7 @@ export function Card({ image, imageAlt, date, title, description, tags, classNam
           {tags && tags.length > 0 && (
             <div className={styles.tags}>
               {tags.map((tag) => (
-                <span key={tag} className={styles.tag}>
-                  {tag}
-                </span>
+                <Tags key={tag}>{tag}</Tags>
               ))}
             </div>
           )}
