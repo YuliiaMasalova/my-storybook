@@ -1,0 +1,56 @@
+/**
+ * Tags — styles driven by design tokens (src/tokens/tokens.css).
+ * Figma reference: node 2106:307 ("Tags" component, property1: Default/hover).
+ *
+ * Same pill spec as the tag pills inline in Card (node 2103:731) — reused
+ * here as a standalone, reusable component. `state="hover"` lets you pin the
+ * hover look for previews/Chromatic snapshots; real pointer `:hover` maps to
+ * the exact same rule, so a clickable Tags (with onClick) stays correct too.
+ */
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding-top: 5px; /* Figma's exact (slightly asymmetric) pill padding */
+  padding-right: 15px; /* no scale token matches 15px exactly */
+  padding-bottom: 7px;
+  padding-left: 15px;
+  border: none;
+  border-radius: var(--primitive-radius-9999);
+  background: var(--semantic-surface-tags-default);
+  color: var(--primitive-color-base-white);
+  /* Figma specifies "Overused Grotesk" for tag labels specifically (every
+     other text in this design uses Inter) — not in tokens.json, so it's
+     literal here rather than the --primitive-font-family-primary token;
+     falls back to sans-serif if the font isn't loaded on the page. */
+  font-family: 'Overused Grotesk', sans-serif;
+  font-weight: var(--primitive-font-weight-regular);
+  font-size: var(--primitive-font-size-18);
+  line-height: 26px; /* fixed — default line-height collapses the pill height */
+  white-space: nowrap;
+  transition: background-color 0.15s ease;
+}
+
+.tag:hover,
+.tag[data-state='hover'] {
+  background: var(--semantic-surface-tags-hover);
+}
+
+/* When rendered as a real <button> (interactive use), keep it looking/acting
+   like the decorative pill but usable from the keyboard. */
+button.tag {
+  cursor: pointer;
+  appearance: none;
+}
+
+button.tag:focus-visible {
+  outline: 2px solid var(--semantic-border-primary-active);
+  outline-offset: 2px;
+}
+
+button.tag:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
