@@ -35,7 +35,9 @@
 
 .tag:hover,
 .tag[data-state='hover'] {
-  background: var(--semantic-surface-tags-hover);
+  /* #1E3A8A per request — matches --primitive-color-blue-900 exactly, used
+     instead of hardcoding so this still reads from tokens.json. */
+  background: var(--primitive-color-blue-900);
 }
 
 /* When rendered as a real <button> (interactive use), keep it looking/acting
